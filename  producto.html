@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Producto - Camisas Estampadas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Camisas Estampadas</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="personalizar.html">Personalizar</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="#"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-container">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="main-product-image" src="images/product1.jpg" alt="Camisa estampada">
+                    </div>
+                    <div class="thumbnail-images">
+                        <img src="images/product1.jpg" alt="Vista frontal" onclick="changeMainImage(this)">
+                        <img src="images/product1-back.jpg" alt="Vista trasera" onclick="changeMainImage(this)">
+                        <img src="images/product1-detail.jpg" alt="Detalle estampado" onclick="changeMainImage(this)">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h1 id="product-title">Camisa Estampada Clásica</h1>
+                    <div class="product-meta">
+                        <span class="price" id="product-price">$29.99</span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(24 reseñas)</span>
+                        </span>
+                    </div>
+                    <p id="product-description">Camisa de algodón 100% con estampado exclusivo. Corte clásico y cómodo para uso diario. Disponible en varios colores y tallas.</p>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label for="color">Color:</label>
+                            <select id="color">
+                                <option value="blanco">Blanco</option>
+                                <option value="negro">Negro</option>
+                                <option value="azul">Azul</option>
+                                <option value="rojo">Rojo</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label for="size">Talla:</label>
+                            <select id="size">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label for="quantity">Cantidad:</label>
+                            <input type="number" id="quantity" min="1" value="1">
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn" id="add-to-cart">Añadir al carrito</button>
+                        <button class="btn btn-secondary" id="buy-now">Comprar ahora</button>
+                        <a href="https://wa.me/1234567890?text=Estoy%20interesado%20en%20la%20camisa%20estampada%20clásica" class="btn btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+                        </a>
+                    </div>
+                    
+                    <div class="product-details">
+                        <h3>Detalles del producto</h3>
+                        <ul>
+                            <li><strong>Material:</strong> 100% Algodón</li>
+                            <li><strong>Corte:</strong> Regular fit</li>
+                            <li><strong>Mangas:</strong> Cortas</li>
+                            <li><strong>Cuello:</strong> Clásico</li>
+                            <li><strong>Cuidados:</strong> Lavar a máquina a 30°C, no usar lejía</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-reviews">
+                <h3>Opiniones de clientes</h3>
+                <div class="reviews-container">
+                    <div class="review">
+                        <div class="review-header">
+                            <span class="review-author">Juan Pérez</span>
+                            <span class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <div class="review-content">
+                            <p>Excelente calidad de la tela y el estampado. Muy cómoda y perfecta para el verano.</p>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <span class="review-author">María Gómez</span>
+                            <span class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                        </div>
+                        <div class="review-content">
+                            <p>Buena camisa, aunque el color es un poco diferente al de la foto. Por lo demás todo perfecto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="related-products">
+                <h3>Productos relacionados</h3>
+                <div class="products-grid" id="related-products">
+                    <!-- Los productos relacionados se cargarán dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Camisas Estampadas</h3>
+                    <p>Tu estilo, nuestra tela. Crea camisas únicas que reflejen tu personalidad.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="personalizar.html">Personalizar</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@camisasestampadas.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ciudad, País</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Camisas Estampadas. Todos los derechos reservados.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function changeMainImage(img) {
+            document.getElementById('main-product-image').src = img.src;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personaliza tu Camisa - Camisas Estampadas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Camisas Estampadas</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="personalizar.html" class="active">Personalizar</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="#"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="custom-shirt">
+        <div class="container">
+            <h2>Personaliza tu Camisa</h2>
+            <p>Crea una camisa única con tu propio diseño o elige entre nuestras opciones de personalización.</p>
+            
+            <div class="customizer-container">
+                <div class="customizer-preview">
+                    <div class="shirt-base">
+                        <img id="base-shirt" src="images/shirt-white.png" alt="Base de camisa">
+                        <div class="design-preview" id="design-preview"></div>
+                    </div>
+                    <div class="preview-controls">
+                        <button id="rotate-front" class="btn btn-small">Frente</button>
+                        <button id="rotate-back" class="btn btn-small">Espalda</button>
+                    </div>
+                </div>
+                
+                <div class="customizer-options">
+                    <div class="customizer-tabs">
+                        <button class="tab-btn active" data-tab="base">Base</button>
+                        <button class="tab-btn" data-tab="design">Diseño</button>
+                        <button class="tab-btn" data-tab="text">Texto</button>
+                        <button class="tab-btn" data-tab="finalize">Finalizar</button>
+                    </div>
+                    
+                    <div class="customizer-content">
+                        <!-- Pestaña Base -->
+                        <div id="base-tab" class="tab-content active">
+                            <div class="option-group">
+                                <label for="shirt-color">Color de la camisa:</label>
+                                <select id="shirt-color" onchange="changeShirtColor()">
+                                    <option value="white" data-image="images/shirt-white.png">Blanco</option>
+                                    <option value="black" data-image="images/shirt-black.png">Negro</option>
+                                    <option value="blue" data-image="images/shirt-blue.png">Azul</option>
+                                    <option value="red" data-image="images/shirt-red.png">Rojo</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label for="shirt-size">Talla:</label>
+                                <select id="shirt-size">
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label for="shirt-style">Estilo:</label>
+                                <select id="shirt-style">
+                                    <option value="classic">Clásica</option>
+                                    <option value="slim">Ajustada</option>
+                                    <option value="oversize">Oversize</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Pestaña Diseño -->
+                        <div id="design-tab" class="tab-content">
+                            <div class="design-options">
+                                <h4>Elige un diseño</h4>
+                                <div class="design-thumbnails">
+                                    <div class="design-thumb" onclick="selectDesign('design1')">
+                                        <img src="images/design1-thumb.jpg" alt="Diseño 1">
+                                    </div>
+                                    <div class="design-thumb" onclick="selectDesign('design2')">
+                                        <img src="images/design2-thumb.jpg" alt="Diseño 2">
+                                    </div>
+                                    <div class="design-thumb" onclick="selectDesign('design3')">
+                                        <img src="images/design3-thumb.jpg" alt="Diseño 3">
+                                    </div>
+                                    <div class="design-thumb" onclick="selectDesign('design4')">
+                                        <img src="images/design4-thumb.jpg" alt="Diseño 4">
+                                    </div>
+                                </div>
+                                
+                                <div class="option-group">
+                                    <label for="design-upload">O sube tu propio diseño:</label>
+                                    <input type="file" id="design-upload" accept="image/*">
+                                </div>
+                                
+                                <div class="design-position">
+                                    <h4>Posición del diseño</h4>
+                                    <div class="position-controls">
+                                        <div class="position-group">
+                                            <label>Vertical</label>
+                                            <input type="range" id="pos-y" min="0" max="100" value="50">
+                                        </div>
+                                        <div class="position-group">
+                                            <label>Horizontal</label>
+                                            <input type="range" id="pos-x" min="0" max="100" value="50">
+                                        </div>
+                                        <div class="position-group">
+                                            <label>Tamaño</label>
+                                            <input type="range" id="design-size" min="10" max="200" value="100">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pestaña Texto -->
+                        <div id="text-tab" class="tab-content">
+                            <div class="text-options">
+                                <div class="option-group">
+                                    <label for="custom-text">Texto personalizado:</label>
+                                    <input type="text" id="custom-text" placeholder="Escribe tu texto aquí">
+                                </div>
+                                <div class="option-group">
+                                    <label for="text-font">Fuente:</label>
+                                    <select id="text-font">
+                                        <option value="Arial">Arial</option>
+                                        <option value="Times New Roman">Times New Roman</option>
+                                        <option value="Courier New">Courier New</option>
+                                        <option value="Georgia">Georgia</option>
+                                        <option value="Verdana">Verdana</option>
+                                    </select>
+                                </div>
+                                <div class="option-group">
+                                    <label for="text-color">Color del texto:</label>
+                                    <input type="color" id="text-color" value="#000000">
+                                </div>
+                                <div class="option-group">
+                                    <label for="text-size">Tamaño:</label>
+                                    <input type="range" id="text-size" min="10" max="72" value="24">
+                                </div>
+                                <button id="add-text" class="btn btn-small">Añadir texto</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Pestaña Finalizar -->
+                        <div id="finalize-tab" class="tab-content">
+                            <div class="finalize-options">
+                                <h4>Resumen de tu diseño</h4>
+                                <div class="summary">
+                                    <p><strong>Color:</strong> <span id="summary-color">Blanco</span></p>
+                                    <p><strong>Talla:</strong> <span id="summary-size">M</span></p>
+                                    <p><strong>Estilo:</strong> <span id="summary-style">Clásica</span></p>
+                                    <p><strong>Diseño:</strong> <span id="summary-design">Ninguno</span></p>
+                                    <p><strong>Texto:</strong> <span id="summary-text">Ninguno</span></p>
+                                </div>
+                                
+                                <div class="option-group">
+                                    <label for="quantity">Cantidad:</label>
+                                    <input type="number" id="quantity" min="1" value="1">
+                                </div>
+                                
+                                <div class="price-summary">
+                                    <h4>Precio total: <span id="custom-price">$34.99</span></h4>
+                                </div>
+                                
+                                <div class="final-actions">
+                                    <button id="save-design" class="btn">Guardar diseño</button>
+                                    <button id="add-custom-to-cart" class="btn">Añadir al carrito</button>
+                                    <a href="https://wa.me/1234567890?text=Estoy%20interesado%20en%20una%20camisa%20personalizada" class="btn btn-whatsapp" target="_blank">
+                                        <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="custom-gallery">
+        <div class="container">
+            <h3>Inspírate con diseños de nuestros clientes</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/custom1.jpg" alt="Diseño personalizado 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/custom2.jpg" alt="Diseño personalizado 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/custom3.jpg" alt="Diseño personalizado 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/custom4.jpg" alt="Diseño personalizado 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Camisas Estampadas</h3>
+                    <p>Tu estilo, nuestra tela. Crea camisas únicas que reflejen tu personalidad.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="personalizar.html">Personalizar</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@camisasestampadas.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ciudad, País</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Camisas Estampadas. Todos los derechos reservados.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Cambiar color de la camisa
+        function changeShirtColor() {
+            const select = document.getElementById('shirt-color');
+            const selectedOption = select.options[select.selectedIndex];
+            const imagePath = selectedOption.getAttribute('data-image');
+            document.getElementById('base-shirt').src = imagePath;
+            document.getElementById('summary-color').textContent = selectedOption.text;
+        }
+        
+        // Seleccionar diseño
+        function selectDesign(designId) {
+            // En una implementación real, esto cargaría el diseño seleccionado
+            document.getElementById('summary-design').textContent = "Diseño " + designId.charAt(designId.length-1);
+            alert('Diseño ' + designId.charAt(designId.length-1) + ' seleccionado');
+        }
+        
+        // Manejar pestañas
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remover clase active de todos los botones y contenidos
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Añadir clase active al botón clickeado
+                btn.classList.add('active');
+                
+                // Mostrar el contenido correspondiente
+                const tabId = btn.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Actualizar resumen cuando cambian las opciones
+        document.getElementById('shirt-size').addEventListener('change', function() {
+            document.getElementById('summary-size').textContent = this.value;
+        });
+        
+        document.getElementById('shirt-style').addEventListener('change', function() {
+            document.getElementById('summary-style').textContent = this.options[this.selectedIndex].text;
+        });
+        
+        document.getElementById('add-text').addEventListener('click', function() {
+            const text = document.getElementById('custom-text').value;
+            if (text) {
+                document.getElementById('summary-text').textContent = text;
+            }
+        });
+    </script>
+</body>
+</html>

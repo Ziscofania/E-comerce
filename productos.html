@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Productos - Camisas Estampadas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Camisas Estampadas</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html" class="active">Productos</a></li>
+                    <li><a href="personalizar.html">Personalizar</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="#"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="products-page">
+        <div class="container">
+            <h2>Nuestra Colección</h2>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="category">Categoría:</label>
+                    <select id="category">
+                        <option value="all">Todas</option>
+                        <option value="clasicas">Clásicas</option>
+                        <option value="modernas">Modernas</option>
+                        <option value="graficas">Gráficas</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="size">Talla:</label>
+                    <select id="size">
+                        <option value="all">Todas</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="color">Color:</label>
+                    <select id="color">
+                        <option value="all">Todos</option>
+                        <option value="blanco">Blanco</option>
+                        <option value="negro">Negro</option>
+                        <option value="azul">Azul</option>
+                        <option value="rojo">Rojo</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price">Precio:</label>
+                    <select id="price">
+                        <option value="all">Todos</option>
+                        <option value="0-20">$0 - $20</option>
+                        <option value="20-40">$20 - $40</option>
+                        <option value="40-60">$40 - $60</option>
+                        <option value="60+">$60+</option>
+                    </select>
+                </div>
+                <button id="reset-filters" class="btn btn-small">Resetear filtros</button>
+            </div>
+            
+            <div class="products-grid" id="all-products">
+                <!-- Los productos se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Camisas Estampadas</h3>
+                    <p>Tu estilo, nuestra tela. Crea camisas únicas que reflejen tu personalidad.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="personalizar.html">Personalizar</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@camisasestampadas.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ciudad, País</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Camisas Estampadas. Todos los derechos reservados.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
